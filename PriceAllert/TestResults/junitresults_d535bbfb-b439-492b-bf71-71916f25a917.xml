@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.072" timestamp="2023-12-09T17:23:09.897453" hostname="oani-pc"><testcase classname="test_1.Test_test_1" name="test_A" file="test_1.py" line="3" time="0.001"><failure message="AssertionError: Not implemented">self = &lt;test_1.Test_test_1 testMethod=test_A&gt;
+
+    def test_A(self):
+&gt;       self.fail("Not implemented")
+E       AssertionError: Not implemented
+
+test_1.py:5: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

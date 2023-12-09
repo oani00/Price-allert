@@ -4,13 +4,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3d95c27d-6559-408a-9ec8-6f6c129154b8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PriceAllert.py</StartupFile>
+    <StartupFile>Amaz.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PriceAllert</Name>
     <RootNamespace>PriceAllert</RootNamespace>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,8 +24,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Amaz.py" />
     <Compile Include="PriceAllert.py" />
-    <Compile Include="test_1.py">
+    <Compile Include="test_2.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

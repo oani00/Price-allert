@@ -1,44 +1,40 @@
-import csv
 import requests
 from bs4 import BeautifulSoup
+import csv
 from datetime import datetime
 
+url = "https://www.udemy.com/course/automate-your-life-with-python/?referralCode=7FA8B361D7A92B03A8C3"
 
-class Target:
-    def __init__(self, nickname, url, tag, property):
-        self.nickname = nickname
-        self.url = url
-        self.tag = tag
-        self.property = property
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
 
+# Use find method to get the meta tag with property 'udemy_com:price'
+price_tag = soup.find("meta", {"property": "udemy_com:price"})
 
-def fetch_price(target):
-    response = requests.get(target.url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    price_tag = soup.find("meta", {"property": target.property})
-    return price_tag["content"] if price_tag else "Price not found"
+# Extract the price
+price = price_tag["content"] if price_tag else "Price not found"
 
 
-def save_price(target, price):
-    today = datetime.today().strftime("%Y-%m-%d")
-    with open("prices.csv", "a", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow([target.nickname, today, price])
+# The nickname for the URL
+nickname = "Python Course"
+
+# Get today's date
+today = datetime.today().strftime("%Y-%m-%d")
+
+# The data to save
+data = [nickname, today, price]
+
+# The name of the CSV file
+filename = "prices.csv"
+
+# Open the file in append mode ('a')
+with open(filename, "a", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(data)
 
 
-def scrape_prices(targets):
-    for target in targets:
-        price = fetch_price(target)
-        save_price(target, price)
-
-
-targets = [
-    Target(
-        "Python Course",
-        "https://www.udemy.com/course/automate-your-life-with-python/?referralCode=7FA8B361D7A92B03A8C3",
-        ".your-css-selector",
-    ),
-    # Add more Target objects here...
-]
-
-scrape_prices(targets)
+# Open the file in read mode ('r')
+with open(filename, "r") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
