@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3d95c27d-6559-408a-9ec8-6f6c129154b8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Amaz.py</StartupFile>
+    <StartupFile>teste.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,11 +24,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Amaz.py" />
+    <Compile Include="corzinhas.py" />
     <Compile Include="PriceAllert.py" />
-    <Compile Include="test_2.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="teste.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NOTAS.txt" />
